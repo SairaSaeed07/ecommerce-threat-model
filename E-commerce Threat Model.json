@@ -1,0 +1,678 @@
+{
+  "version": "2.6.2",
+  "summary": {
+    "title": "Production E-Commerce API - Security Architecture - Saira Saeed ",
+    "owner": "Saira Saeed",
+    "description": "Sensitive Data Handling via Stripe & PostgreSQL",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "E-Commerce Nest JS API",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "cells": [
+          {
+            "position": {
+              "x": 308,
+              "y": -9.999999999999844
+            },
+            "size": {
+              "width": 410,
+              "height": 230
+            },
+            "attrs": {
+              "label": {
+                "text": "Internal Cloud "
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "c02a483a-ce46-4ea8-89ab-79f71b773f75",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Internal Cloud ",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "ca6b520e-e3a9-4d8b-9ea8-47f8cbf19394",
+                "044d24ce-3982-4910-89a5-8633fd048f70"
+              ],
+              "containedElements": [
+                "8e96c208-c776-4673-8fb0-0b3e98b4eb50",
+                "3746175c-f442-433d-8d91-e074b93bb1ce"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 80,
+              "y": 100
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Customer"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "1b480851-2128-4c2f-84c0-715691930c1f"
+                },
+                {
+                  "group": "right",
+                  "id": "790e9a4f-9b5d-4399-b25e-e2f111edf4ec"
+                },
+                {
+                  "group": "bottom",
+                  "id": "2a988067-a52a-483f-ade9-4692eb4b3367"
+                },
+                {
+                  "group": "left",
+                  "id": "a40103f0-3c31-489e-8802-343bbd17d79f"
+                }
+              ]
+            },
+            "id": "1c23b9ca-8f61-4c23-91eb-1158552e05a8",
+            "data": {
+              "type": "tm.Actor",
+              "name": "Customer",
+              "description": "",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": [
+                {
+                  "id": "051c8f0c-7e0e-4c2a-8ec1-bd7c5470a150",
+                  "title": "User Account Impersonation",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An attacker uses stolen credentials to log in as a legitimate customer.s threat",
+                  "mitigation": "• Multi-Factor Authentication (MFA)\n• Strong password policy\n• Account lockout after repeated failed logins",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                },
+                {
+                  "id": "018a83c2-b701-4b26-9c2b-cb0bf2a40418",
+                  "title": "Session Hijacking",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Attacker steals a user's active session token.",
+                  "mitigation": "HTTPS\nSecure Cookies\nShort-lived JWT Tokens",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "repudiation": 0
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 360,
+              "y": 50
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "Order Service "
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 2,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "47c49e2a-ad82-4cad-999a-6653d89d9e6f"
+                },
+                {
+                  "group": "right",
+                  "id": "5215c1bb-c167-49a0-b93d-03993d662a46"
+                },
+                {
+                  "group": "bottom",
+                  "id": "877fc1a7-2add-4223-8d98-89011aca8dae"
+                },
+                {
+                  "group": "left",
+                  "id": "ef6a472c-f21f-4337-b283-9dbe6c3030b2"
+                }
+              ]
+            },
+            "id": "8e96c208-c776-4673-8fb0-0b3e98b4eb50",
+            "data": {
+              "type": "tm.Process",
+              "name": "Order Service ",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "23da541d-2a86-43a3-b484-457a699bd15f",
+                  "title": "Order Tampering",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker modifies order quantities or prices during processing.",
+                  "mitigation": "Server-side validation\nDigital signatures\nIntegrity checks",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                },
+                {
+                  "id": "2fba026d-f4ea-4f8b-baa9-70d463a623dc",
+                  "title": "Unauthorized Order Access",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "A user accesses another customer's order details.",
+                  "mitigation": "Role-Based Access Control (RBAC)\nOwnership validation\nAuthorization middleware",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 3,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 577,
+              "y": 80
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Customer - DB"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 3,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "1144cbf5-a503-4713-8e98-ec1321452738"
+                },
+                {
+                  "group": "right",
+                  "id": "e338178f-8e10-4d6d-af85-6b79d5645328"
+                },
+                {
+                  "group": "bottom",
+                  "id": "36d412e2-b708-46f2-a545-1cde3be4f4dd"
+                },
+                {
+                  "group": "left",
+                  "id": "05274f8c-6104-4067-8b57-1e642d5bd142"
+                }
+              ]
+            },
+            "id": "3746175c-f442-433d-8d91-e074b93bb1ce",
+            "data": {
+              "type": "tm.Store",
+              "name": "Customer - DB",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "344c159f-9dd6-4339-ba97-92c0d034ccea",
+                  "title": "Sensitive Data Exposure",
+                  "status": "Mitigated",
+                  "severity": "Critical",
+                  "type": "Information disclosure",
+                  "description": "Sensitive customer information is exposed due to weak encryption or access controls.",
+                  "mitigation": "AES-256 Encryption\nDatabase access control\nEncryption at rest",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
+                },
+                {
+                  "id": "9949e020-3cff-41fa-93a8-58eabb98dd92",
+                  "title": "Database Modification",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Unauthorized users modify customer or order records.",
+                  "mitigation": "Least-privilege database accounts\nAudit logs\nBackups",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "6efad3da-3878-4f7f-9635-78ad5bc2b406",
+                  "title": "Man-in-the-Middle (MITM)",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "An attacker intercepts data transmitted between the customer and the API.",
+                  "mitigation": "HTTPS\nTLS 1.3\nCertificate Validation",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                },
+                {
+                  "id": "898e2b89-98d0-45c7-bdc3-927d961a9635",
+                  "title": "Replay Attack",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker captures a valid request and replays it to repeat a transaction.",
+                  "mitigation": "Nonce\nTimestamp validation\nJWT expiration",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "c02a483a-ce46-4ea8-89ab-79f71b773f75"
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "ca6b520e-e3a9-4d8b-9ea8-47f8cbf19394",
+            "source": {
+              "x": 193,
+              "y": 128
+            },
+            "target": {
+              "cell": "8e96c208-c776-4673-8fb0-0b3e98b4eb50",
+              "port": "877fc1a7-2add-4223-8d98-89011aca8dae"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Save Data ",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "87cf0640-18b2-442b-bfe1-5c5e9257c6e6",
+                  "title": "Data Manipulation",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Data is altered while being transmitted between the API and the database.",
+                  "mitigation": "Encrypted connections\nIntegrity validation\nSecure database channels",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "c02a483a-ce46-4ea8-89ab-79f71b773f75"
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Save Data "
+            ],
+            "id": "044d24ce-3982-4910-89a5-8633fd048f70",
+            "source": {
+              "x": 460,
+              "y": 100
+            },
+            "target": {
+              "cell": "3746175c-f442-433d-8d91-e074b93bb1ce",
+              "port": "36d412e2-b708-46f2-a545-1cde3be4f4dd"
+            },
+            "vertices": [
+              {
+                "x": 540,
+                "y": 120
+              },
+              {
+                "x": 550,
+                "y": 120
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "diagramTop": 2,
+    "reviewer": "",
+    "threatTop": 11
+  }
+}
